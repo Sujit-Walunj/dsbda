@@ -1,0 +1,27 @@
+import java.util.HashMap;
+import java.util.Map;
+
+public class WordCounter {
+    public static void main(String[] args) {
+        String paragraph = "This is a sample paragraph. a , a a, a a a a a  It contains several words. Counting the number of words in this paragraph is our task.";
+
+        // Split the paragraph into words using whitespace as delimiter
+        String[] words = paragraph.split("\\s+");
+
+        // Count the number of words
+        int wordCount = words.length;
+
+        // Count the occurrences of each word
+        Map<String, Integer> wordOccurrences = new HashMap<>();
+        for (String word : words) {
+            wordOccurrences.put(word, wordOccurrences.getOrDefault(word, 0) + 1);
+        }
+
+        // Print the result
+        System.out.println("Number of words in the paragraph: " + wordCount);
+        System.out.println("Occurrences of each word:");
+        for (Map.Entry<String, Integer> entry : wordOccurrences.entrySet()) {
+            System.out.println(entry.getKey() + ": " + entry.getValue());
+        }
+    }
+}
